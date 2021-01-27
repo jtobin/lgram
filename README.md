@@ -14,3 +14,6 @@ git clone git@github.com:jtobin/lgram.git
 cd lgram
 ./conj
 ```
+
+Press 'q' to quit.
+
