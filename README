@@ -1,0 +1,16 @@
+# lgram
+
+Drill Latin grammar.
+
+## Clone
+
+```
+git clone git@github.com:jtobin/lgram.git
+```
+
+## Run
+
+```
+cd lgram
+./conj
+```

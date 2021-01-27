@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+DATA="conj.txt"
+
+lent=$(wc -l "$DATA" | cut -f 1 -d' ')
+line=$(shuf -i 1-"$lent" -n 1)
+cont=$(sed -n "$line"p $DATA)
+
+echo "$cont" | cut -f 1 -d' '
+
+read -p "" -n 1 -r <&1
+echo "voice:  $(echo "$cont" | cut -f 2 -d' ')"
+echo "mood:   $(echo "$cont" | cut -f 3 -d' ')"
+echo "tense:  $(echo "$cont" | cut -f 4 -d' ')"
+echo "person: $(echo "$cont" | cut -f 5 -d' ')"
