@@ -142,12 +142,12 @@ erat,āctivum,indicātīvus,imperfectum,3ps,he was
 erāmus,āctivum,indicātīvus,imperfectum,1pp,we were
 erātis,āctivum,indicātīvus,imperfectum,2pp,you were
 erant,āctivum,indicātīvus,imperfectum,3pp,they were
-erō,āctivum,indicātīvus,futūrum,1ps,I will
-eris,āctivum,indicātīvus,futūrum,2ps,you will
-erit,āctivum,indicātīvus,futūrum,3ps,he will
-erimus,āctivum,indicātīvus,futūrum,1pp,we will
-eritis,āctivum,indicātīvus,futūrum,2pp,you will
-erunt,āctivum,indicātīvus,futūrum,3pp,they will
+erō,āctivum,indicātīvus,futūrum,1ps,I will be
+eris,āctivum,indicātīvus,futūrum,2ps,you will be
+erit,āctivum,indicātīvus,futūrum,3ps,he will be
+erimus,āctivum,indicātīvus,futūrum,1pp,we will be
+eritis,āctivum,indicātīvus,futūrum,2pp,you will be
+erunt,āctivum,indicātīvus,futūrum,3pp,they will be
 fuerō,āctivum,indicātīvus,futūrum-perfectum,1ps,I will have been
 fueris,āctivum,indicātīvus,futūrum-perfectum,2ps,you will have been
 fuerit,āctivum,indicātīvus,futūrum-perfectum,3ps,he will have been
