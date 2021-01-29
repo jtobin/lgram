@@ -304,8 +304,6 @@ amārent,āctivum,coniūnctīvus,imperfectum,3pp,would that they loved
 EOF
 )
 
-LOOP=true
-
 prompt() {
   read -p '' -n 1 -r <&1
   if [[ $REPLY =~ ^[Qq]$ ]]; then
@@ -313,13 +311,15 @@ prompt() {
   fi
 }
 
+LOOP=true
+
 while $LOOP; do
 
   clear
 
-  lent=$(echo "$DATA" | wc -l | cut -f 1 -d' ')
+  lent=$(wc -l <<< "$DATA" | cut -f 1 -d' ')
   line=$(shuf -i 1-"$lent" -n 1)
-  cont=$(echo "$DATA" | sed -n "$line"p)
+  cont=$(sed -n "$line"p <<< "$DATA")
 
   echo "$cont" | cut -f 1 -d,
 
