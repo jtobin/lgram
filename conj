@@ -1,6 +1,309 @@
 #!/usr/bin/env bash
 
-DATA='./conj.txt'
+DATA=$(cat << EOF
+moneō,āctivum,indicātīvus,praesēns,1ps,I teach
+monēs,āctivum,indicātīvus,praesēns,2ps,you teach
+monet,āctivum,indicātīvus,praesēns,3ps,he teaches
+monēmus,āctivum,indicātīvus,praesēns,1pp,we teach
+monētis,āctivum,indicātīvus,praesēns,2pp,you teach
+monent,āctivum,indicātīvus,praesēns,3pp,they teach
+monueram,āctivum,indicātīvus,plūsquamperfectum,1ps,I had taught
+monuerās,āctivum,indicātīvus,plūsquamperfectum,2ps,you had taught
+monuerat,āctivum,indicātīvus,plūsquamperfectum,3ps,he had taught
+monuerāmus,āctivum,indicātīvus,plūsquamperfectum,1pp,we had taught
+monuerātis,āctivum,indicātīvus,plūsquamperfectum,2pp,you had taught
+monuerant,āctivum,indicātīvus,plūsquamperfectum,3pp,they had taught
+monuī,āctivum,indicātīvus,perfectum,1ps,I taught
+monuistī,āctivum,indicātīvus,perfectum,2ps,you taught
+monuit,āctivum,indicātīvus,perfectum,3ps,he taught
+monuimus,āctivum,indicātīvus,perfectum,1pp,we taught
+monuistis,āctivum,indicātīvus,perfectum,2pp,you taught
+monuērunt,āctivum,indicātīvus,perfectum,3pp,they taught
+monēbam,āctivum,indicātīvus,imperfectum,1ps,I was teaching
+monēbās,āctivum,indicātīvus,imperfectum,2ps,you were teaching
+monēbat,āctivum,indicātīvus,imperfectum,3ps,he was teaching
+monēbāmus,āctivum,indicātīvus,imperfectum,1pp,we were teaching
+monēbātis,āctivum,indicātīvus,imperfectum,2pp,you were teaching
+monēbant,āctivum,indicātīvus,imperfectum,3pp,they were teaching
+monēbō,āctivum,indicātīvus,futūrum,1ps,I will teach
+monēbis,āctivum,indicātīvus,futūrum,2ps,you will teach
+monēbit,āctivum,indicātīvus,futūrum,3ps,he will teach
+monēbimus,āctivum,indicātīvus,futūrum,1pp,we will teach
+monēbitis,āctivum,indicātīvus,futūrum,2pp,you will teach
+monēbunt,āctivum,indicātīvus,futūrum,3pp,they will teach
+monuerō,āctivum,indicātīvus,futūrum-perfectum,1ps,I will have taught
+monueris,āctivum,indicātīvus,futūrum-perfectum,2ps,you will have taught
+monuerit,āctivum,indicātīvus,futūrum-perfectum,3ps,he will have taught
+monuerimus,āctivum,indicātīvus,futūrum-perfectum,1pp,we will have taught
+monueritis,āctivum,indicātīvus,futūrum-perfectum,2pp,you will have taught
+monuerint,āctivum,indicātīvus,futūrum-perfectum,3pp,they will have taught
+moneam,āctivum,coniūnctīvus,praesēns,1ps,would that I taught
+moneās,āctivum,coniūnctīvus,praesēns,2ps,would that you taught
+moneat,āctivum,coniūnctīvus,praesēns,3ps,would that he taught
+moneāmus,āctivum,coniūnctīvus,praesēns,1pp,would that we taught
+moneātis,āctivum,coniūnctīvus,praesēns,2pp,would that you taught
+moneant,āctivum,coniūnctīvus,praesēns,3pp,would that they taught
+monuissem,āctivum,coniūnctīvus,plusquamperfectum,1ps,would that I had taught
+monuissēs,āctivum,coniūnctīvus,plusquamperfectum,2ps,would that you had taught
+monuisset,āctivum,coniūnctīvus,plusquamperfectum,3ps,would that he had taught
+monuissēmus,āctivum,coniūnctīvus,plusquamperfectum,1pp,would that we had taught
+monuissētis,āctivum,coniūnctīvus,plusquamperfectum,2pp,would that you had taught
+monuissent,āctivum,coniūnctīvus,plusquamperfectum,3pp,would that they had taught
+monuerim,āctivum,coniūnctīvus,perfectum,1ps,would that I taught
+monueris,āctivum,coniūnctīvus,perfectum,2ps,would that you taught
+monuerit,āctivum,coniūnctīvus,perfectum,3ps,would that he taught
+monuerimus,āctivum,coniūnctīvus,perfectum,1pp,would that we taught
+monueritis,āctivum,coniūnctīvus,perfectum,2pp,would that you taught
+monuerint,āctivum,coniūnctīvus,perfectum,3pp,would that they taught
+monērem,āctivum,coniūnctīvus,imperfectum,1ps,would that I teach
+monērēs,āctivum,coniūnctīvus,imperfectum,2ps,would that you teach
+monēret,āctivum,coniūnctīvus,imperfectum,3ps,would that he teach
+monērēmus,āctivum,coniūnctīvus,imperfectum,1pp,would that we teach
+monērētis,āctivum,coniūnctīvus,imperfectum,2pp,would that you teach
+monērent,āctivum,coniūnctīvus,imperfectum,3pp,would that they teach
+legō,āctivum,indicātīvus,praesēns,1ps,I read
+legis,āctivum,indicātīvus,praesēns,2ps,you read
+legit,āctivum,indicātīvus,praesēns,3ps,he reads
+legimus,āctivum,indicātīvus,praesēns,1pp,we read
+legitis,āctivum,indicātīvus,praesēns,2pp,you read
+legunt,āctivum,indicātīvus,praesēns,3pp,they read
+lēgeram,āctivum,indicātīvus,plūsquamperfectum,1ps,I had read
+lēgerās,āctivum,indicātīvus,plūsquamperfectum,2ps,you had read
+lēgerat,āctivum,indicātīvus,plūsquamperfectum,3ps,he had read
+lēgerāmus,āctivum,indicātīvus,plūsquamperfectum,1pp,we had read
+lēgerātis,āctivum,indicātīvus,plūsquamperfectum,2pp,you had read
+lēgerant,āctivum,indicātīvus,plūsquamperfectum,3pp,they had read
+lēgī,āctivum,indicātīvus,perfectum,1ps,I read
+lēgistī,āctivum,indicātīvus,perfectum,2ps,you read
+lēgit,āctivum,indicātīvus,perfectum,3ps,he read
+lēgimus,āctivum,indicātīvus,perfectum,1pp,we read
+lēgistis,āctivum,indicātīvus,perfectum,2pp,you read
+lēgērunt,āctivum,indicātīvus,perfectum,3pp,they read
+legēbam,āctivum,indicātīvus,imperfectum,1ps,I was reading
+legēbās,āctivum,indicātīvus,imperfectum,2ps,you were reading
+legēbat,āctivum,indicātīvus,imperfectum,3ps,he was reading
+legēbāmus,āctivum,indicātīvus,imperfectum,1pp,we were reading
+legēbātis,āctivum,indicātīvus,imperfectum,2pp,you were reading
+legēbant,āctivum,indicātīvus,imperfectum,3pp,they were reading
+legam,āctivum,indicātīvus,futūrum,1ps,I will read
+legēs,āctivum,indicātīvus,futūrum,2ps,you will read
+leget,āctivum,indicātīvus,futūrum,3ps,he will read
+legēmus,āctivum,indicātīvus,futūrum,1pp,we will read
+legētis,āctivum,indicātīvus,futūrum,2pp,you will read
+legent,āctivum,indicātīvus,futūrum,3pp,they will read
+lēgerō,āctivum,indicātīvus,futūrum-perfectum,1ps,I will have read
+lēgeris,āctivum,indicātīvus,futūrum-perfectum,2ps,you will have read
+lēgerit,āctivum,indicātīvus,futūrum-perfectum,3ps,he will have read
+lēgerimus,āctivum,indicātīvus,futūrum-perfectum,1pp,we will have read
+lēgeritis,āctivum,indicātīvus,futūrum-perfectum,2pp,you will have read
+lēgerint,āctivum,indicātīvus,futūrum-perfectum,3pp,they will have read
+legam,āctivum,coniūnctīvus,praesēns,1ps,would that I read
+legās,āctivum,coniūnctīvus,praesēns,2ps,would that you read
+legat,āctivum,coniūnctīvus,praesēns,3ps,would that he read
+legāmus,āctivum,coniūnctīvus,praesēns,1pp,would that we read
+legātis,āctivum,coniūnctīvus,praesēns,2pp,would that you read
+legant,āctivum,coniūnctīvus,praesēns,3pp,would that they read
+lēgissem,āctivum,coniūnctīvus,plusquamperfectum,1ps,would that I had read
+lēgissēs,āctivum,coniūnctīvus,plusquamperfectum,2ps,would that you had read
+lēgisset,āctivum,coniūnctīvus,plusquamperfectum,3ps,would that he had read
+lēgissēmus,āctivum,coniūnctīvus,plusquamperfectum,1pp,would that we had read
+lēgissētis,āctivum,coniūnctīvus,plusquamperfectum,2pp,would that you had read
+lēgissent,āctivum,coniūnctīvus,plusquamperfectum,3pp,would that they had read
+lēgerim,āctivum,coniūnctīvus,perfectum,1ps,would that I read
+lēgeris,āctivum,coniūnctīvus,perfectum,2ps,would that you read
+lēgerit,āctivum,coniūnctīvus,perfectum,3ps,would that he read
+lēgerimus,āctivum,coniūnctīvus,perfectum,1pp,would that we read
+lēgeritis,āctivum,coniūnctīvus,perfectum,2pp,would that you read
+lēgerint,āctivum,coniūnctīvus,perfectum,3pp,would that they read
+legerem,āctivum,coniūnctīvus,imperfectum,1ps,would that I read
+legerēs,āctivum,coniūnctīvus,imperfectum,2ps,would that you read
+legeret,āctivum,coniūnctīvus,imperfectum,3ps,would that he read
+legerēmus,āctivum,coniūnctīvus,imperfectum,1pp,would that we read
+legerētis,āctivum,coniūnctīvus,imperfectum,2pp,would that you read
+legerent,āctivum,coniūnctīvus,imperfectum,3pp,would that they read
+sum,āctivum,indicātīvus,praesēns,1ps,I am
+es,āctivum,indicātīvus,praesēns,2ps,you are
+est,āctivum,indicātīvus,praesēns,3ps,he is
+sumus,āctivum,indicātīvus,praesēns,1pp,we are
+estis,āctivum,indicātīvus,praesēns,2pp,you are
+sunt,āctivum,indicātīvus,praesēns,3pp,they are
+fueram,āctivum,indicātīvus,plūsquamperfectum,1ps,I had been
+fuerās,āctivum,indicātīvus,plūsquamperfectum,2ps,you had been
+fuerat,āctivum,indicātīvus,plūsquamperfectum,3ps,he had been
+fuerāmus,āctivum,indicātīvus,plūsquamperfectum,1pp,we had been
+fuerātis,āctivum,indicātīvus,plūsquamperfectum,2pp,you had been
+fuerant,āctivum,indicātīvus,plūsquamperfectum,3pp,they had been
+fuī,āctivum,indicātīvus,perfectum,1ps,I was
+fuistī,āctivum,indicātīvus,perfectum,2ps,you were
+fuit,āctivum,indicātīvus,perfectum,3ps,he was
+fuimus,āctivum,indicātīvus,perfectum,1pp,we were
+fuistis,āctivum,indicātīvus,perfectum,2pp,you were
+fuērunt,āctivum,indicātīvus,perfectum,3pp,they were
+eram,āctivum,indicātīvus,imperfectum,1ps,I was
+erās,āctivum,indicātīvus,imperfectum,2ps,you were
+erat,āctivum,indicātīvus,imperfectum,3ps,he was
+erāmus,āctivum,indicātīvus,imperfectum,1pp,we were
+erātis,āctivum,indicātīvus,imperfectum,2pp,you were
+erant,āctivum,indicātīvus,imperfectum,3pp,they were
+erō,āctivum,indicātīvus,futūrum,1ps,I will be
+eris,āctivum,indicātīvus,futūrum,2ps,you will be
+erit,āctivum,indicātīvus,futūrum,3ps,he will be
+erimus,āctivum,indicātīvus,futūrum,1pp,we will be
+eritis,āctivum,indicātīvus,futūrum,2pp,you will be
+erunt,āctivum,indicātīvus,futūrum,3pp,they will be
+fuerō,āctivum,indicātīvus,futūrum-perfectum,1ps,I will have been
+fueris,āctivum,indicātīvus,futūrum-perfectum,2ps,you will have been
+fuerit,āctivum,indicātīvus,futūrum-perfectum,3ps,he will have been
+fuerimus,āctivum,indicātīvus,futūrum-perfectum,1pp,we will have been
+fueritis,āctivum,indicātīvus,futūrum-perfectum,2pp,you will have been
+fuerint,āctivum,indicātīvus,futūrum-perfectum,3pp,they will have been
+sim,āctivum,coniūnctīvus,praesēns,1ps,would that I be
+sīs,āctivum,coniūnctīvus,praesēns,2ps,would that you be
+sit,āctivum,coniūnctīvus,praesēns,3ps,would that he be
+sīmus,āctivum,coniūnctīvus,praesēns,1pp,would that we be
+sītis,āctivum,coniūnctīvus,praesēns,2pp,would that you be
+sint,āctivum,coniūnctīvus,praesēns,3pp,would that they be
+fuissem,āctivum,coniūnctīvus,plusquamperfectum,1ps,would that I had been
+fuissēs,āctivum,coniūnctīvus,plusquamperfectum,2ps,would that you had been
+fuisset,āctivum,coniūnctīvus,plusquamperfectum,3ps,would that he had been
+fuissēmus,āctivum,coniūnctīvus,plusquamperfectum,1pp,would that we had been
+fuissētis,āctivum,coniūnctīvus,plusquamperfectum,2pp,would that you had been
+fuissent,āctivum,coniūnctīvus,plusquamperfectum,3pp,would that they had been
+fuerim,āctivum,coniūnctīvus,perfectum,1ps,would that I were
+fueris,āctivum,coniūnctīvus,perfectum,2ps,would that you were
+fuerit,āctivum,coniūnctīvus,perfectum,3ps,would that he were
+fuerimus,āctivum,coniūnctīvus,perfectum,1pp,would that we were
+fueritis,āctivum,coniūnctīvus,perfectum,2pp,would that you were
+fuerint,āctivum,coniūnctīvus,perfectum,3pp,would that they were
+essem,āctivum,coniūnctīvus,imperfectum,1ps,would that I were
+essēs,āctivum,coniūnctīvus,imperfectum,2ps,would that you were
+esset,āctivum,coniūnctīvus,imperfectum,3ps,would that he were
+essēmus,āctivum,coniūnctīvus,imperfectum,1pp,would that we were
+essētis,āctivum,coniūnctīvus,imperfectum,2pp,would that you were
+essent,āctivum,coniūnctīvus,imperfectum,3pp,would that they were
+audiō,āctivum,indicātīvus,praesēns,1ps,I listen
+audīs,āctivum,indicātīvus,praesēns,2ps,you listen
+audit,āctivum,indicātīvus,praesēns,3ps,he listens
+audīmus,āctivum,indicātīvus,praesēns,1pp,we listen
+audītis,āctivum,indicātīvus,praesēns,2pp,you listen
+audiunt,āctivum,indicātīvus,praesēns,3pp,they listen
+audīveram,āctivum,indicātīvus,plūsquamperfectum,1ps,I had listened
+audīverās,āctivum,indicātīvus,plūsquamperfectum,2ps,you had listened
+audīverat,āctivum,indicātīvus,plūsquamperfectum,3ps,he had listened
+audīverāmus,āctivum,indicātīvus,plūsquamperfectum,1pp,we had listened
+audīverātis,āctivum,indicātīvus,plūsquamperfectum,2pp,you had listened
+audīverant,āctivum,indicātīvus,plūsquamperfectum,3pp,they had listened
+audīvī,āctivum,indicātīvus,perfectum,1ps,I listened
+audīvistī,āctivum,indicātīvus,perfectum,2ps,you listened
+audīvit,āctivum,indicātīvus,perfectum,3ps,he listened
+audīvimus,āctivum,indicātīvus,perfectum,1pp,we listened
+audīvistis,āctivum,indicātīvus,perfectum,2pp,you listened
+audīvērunt,āctivum,indicātīvus,perfectum,3pp,they listened
+audiēbam,āctivum,indicātīvus,imperfectum,1ps,I was listening
+audiēbās,āctivum,indicātīvus,imperfectum,2ps,you were listening
+audiēbat,āctivum,indicātīvus,imperfectum,3ps,he was listening
+audiēbāmus,āctivum,indicātīvus,imperfectum,1pp,we were listening
+audiēbātis,āctivum,indicātīvus,imperfectum,2pp,you were listening
+audiēbant,āctivum,indicātīvus,imperfectum,3pp,they were listening
+audiam,āctivum,indicātīvus,futūrum,1ps,I will listen
+audiēs,āctivum,indicātīvus,futūrum,2ps,you will listen
+audiet,āctivum,indicātīvus,futūrum,3ps,he will listen
+audiēmus,āctivum,indicātīvus,futūrum,1pp,we will listen
+audiētis,āctivum,indicātīvus,futūrum,2pp,you will listen
+audient,āctivum,indicātīvus,futūrum,3pp,they will listen
+audīverō,āctivum,indicātīvus,futūrum-perfectum,1ps,I will have listened
+audīveris,āctivum,indicātīvus,futūrum-perfectum,2ps,you will have listened
+audīverit,āctivum,indicātīvus,futūrum-perfectum,3ps,he will have listened
+audīverimus,āctivum,indicātīvus,futūrum-perfectum,1pp,we will have listened
+audīveritis,āctivum,indicātīvus,futūrum-perfectum,2pp,you will have listened
+audīverint,āctivum,indicātīvus,futūrum-perfectum,3pp,they will have listened
+audiam,āctivum,coniūnctīvus,praesēns,1ps,would that I listen
+audiās,āctivum,coniūnctīvus,praesēns,2ps,would that you listen
+audiat,āctivum,coniūnctīvus,praesēns,3ps,would that he listen
+audiāmus,āctivum,coniūnctīvus,praesēns,1pp,would that we listen
+audiātis,āctivum,coniūnctīvus,praesēns,2pp,would that you listen
+audiant,āctivum,coniūnctīvus,praesēns,3pp,would that they listen
+audīvissem,āctivum,coniūnctīvus,plusquamperfectum,1ps,would that I had listened
+audīvissēs,āctivum,coniūnctīvus,plusquamperfectum,2ps,would that you had listened
+audīvisset,āctivum,coniūnctīvus,plusquamperfectum,3ps,would that he had listened
+audīvissēmus,āctivum,coniūnctīvus,plusquamperfectum,1pp,would that we had listened
+audīvissētis,āctivum,coniūnctīvus,plusquamperfectum,2pp,would that you had listened
+audīvissent,āctivum,coniūnctīvus,plusquamperfectum,3pp,would that they had listened
+audīverim,āctivum,coniūnctīvus,perfectum,1ps,would that I listened
+audīveris,āctivum,coniūnctīvus,perfectum,2ps,would that you listened
+audīverit,āctivum,coniūnctīvus,perfectum,3ps,would that he listened
+audīverimus,āctivum,coniūnctīvus,perfectum,1pp,would that we listened
+audīveritis,āctivum,coniūnctīvus,perfectum,2pp,would that you listened
+audīverint,āctivum,coniūnctīvus,perfectum,3pp,would that they listened
+audīrem,āctivum,coniūnctīvus,imperfectum,1ps,would that I listened
+audīrēs,āctivum,coniūnctīvus,imperfectum,2ps,would that you listened
+audīret,āctivum,coniūnctīvus,imperfectum,3ps,would that he listened
+audīrēmus,āctivum,coniūnctīvus,imperfectum,1pp,would that we listened
+audīrētis,āctivum,coniūnctīvus,imperfectum,2pp,would that you listened
+audīrent,āctivum,coniūnctīvus,imperfectum,3pp,would that they listened
+amō,āctivum,indicātīvus,praesēns,1ps,I love
+amās,āctivum,indicātīvus,praesēns,2ps,you love
+amat,āctivum,indicātīvus,praesēns,3ps,he loves
+amāmus,āctivum,indicātīvus,praesēns,1pp,we love
+amātis,āctivum,indicātīvus,praesēns,2pp,you love
+amant,āctivum,indicātīvus,praesēns,3pp,they love
+amāveram,āctivum,indicātīvus,plūsquamperfectum,1ps,I had loved
+amāverās,āctivum,indicātīvus,plūsquamperfectum,2ps,you had loved
+amāverat,āctivum,indicātīvus,plūsquamperfectum,3ps,he had loved
+amāverāmus,āctivum,indicātīvus,plūsquamperfectum,1pp,we had loved
+amāverātis,āctivum,indicātīvus,plūsquamperfectum,2pp,you had loved
+amāverant,āctivum,indicātīvus,plūsquamperfectum,3pp,they had loved
+amāvī,āctivum,indicātīvus,perfectum,1ps,I loved
+amāvistī,āctivum,indicātīvus,perfectum,2ps,you loved
+amāvit,āctivum,indicātīvus,perfectum,3ps,he loved
+amāvimus,āctivum,indicātīvus,perfectum,1pp,we loved
+amāvistis,āctivum,indicātīvus,perfectum,2pp,you loved
+amāvērunt,āctivum,indicātīvus,perfectum,3pp,they loved
+amābam,āctivum,indicātīvus,imperfectum,1ps,I was loving
+amābās,āctivum,indicātīvus,imperfectum,2ps,you were loving
+amābat,āctivum,indicātīvus,imperfectum,3ps,he was loving
+amābāmus,āctivum,indicātīvus,imperfectum,1pp,we were loving
+amābātis,āctivum,indicātīvus,imperfectum,2pp,you were loving
+amābant,āctivum,indicātīvus,imperfectum,3pp,they were loving
+amābō,āctivum,indicātīvus,futūrum,1ps,I will love
+amābis,āctivum,indicātīvus,futūrum,2ps,you will love
+amābit,āctivum,indicātīvus,futūrum,3ps,he will love
+amābimus,āctivum,indicātīvus,futūrum,1pp,we will love
+amābitis,āctivum,indicātīvus,futūrum,2pp,you will love
+amābunt,āctivum,indicātīvus,futūrum,3pp,they will love
+amāverō,āctivum,indicātīvus,futūrum-perfectum,1ps,I will have loved
+amāveris,āctivum,indicātīvus,futūrum-perfectum,2ps,you will have loved
+amāverit,āctivum,indicātīvus,futūrum-perfectum,3ps,he will have loved
+amāverimus,āctivum,indicātīvus,futūrum-perfectum,1pp,we will have loved
+amāveritis,āctivum,indicātīvus,futūrum-perfectum,2pp,you will have loved
+amāverint,āctivum,indicātīvus,futūrum-perfectum,3pp,they will have loved
+amem,āctivum,coniūnctīvus,praesēns,1ps,would that I love
+amēs,āctivum,coniūnctīvus,praesēns,2ps,would that you love
+amet,āctivum,coniūnctīvus,praesēns,3ps,would that he love
+amēmus,āctivum,coniūnctīvus,praesēns,1pp,would that we love
+amētis,āctivum,coniūnctīvus,praesēns,2pp,would that you love
+ament,āctivum,coniūnctīvus,praesēns,3pp,would that they love
+amāvissem,āctivum,coniūnctīvus,plusquamperfectum,1ps,would that I had loved
+amāvissēs,āctivum,coniūnctīvus,plusquamperfectum,2ps,would that you had loved
+amāvisset,āctivum,coniūnctīvus,plusquamperfectum,3ps,would that he had loved
+amāvissēmus,āctivum,coniūnctīvus,plusquamperfectum,1pp,would that we had loved
+amāvissētis,āctivum,coniūnctīvus,plusquamperfectum,2pp,would that you had loved
+amāvissent,āctivum,coniūnctīvus,plusquamperfectum,3pp,would that they had loved
+amāverim,āctivum,coniūnctīvus,perfectum,1ps,would that I loved
+amāveris,āctivum,coniūnctīvus,perfectum,2ps,would that you loved
+amāverit,āctivum,coniūnctīvus,perfectum,3ps,would that he loved
+amāverimus,āctivum,coniūnctīvus,perfectum,1pp,would that we loved
+amāveritis,āctivum,coniūnctīvus,perfectum,2pp,would that you loved
+amāverint,āctivum,coniūnctīvus,perfectum,3pp,would that they loved
+amārem,āctivum,coniūnctīvus,imperfectum,1ps,would that I loved
+amārēs,āctivum,coniūnctīvus,imperfectum,2ps,would that you loved
+amāret,āctivum,coniūnctīvus,imperfectum,3ps,would that he loved
+amārēmus,āctivum,coniūnctīvus,imperfectum,1pp,would that we loved
+amārētis,āctivum,coniūnctīvus,imperfectum,2pp,would that you loved
+amārent,āctivum,coniūnctīvus,imperfectum,3pp,would that they loved
+EOF
+)
+
 LOOP=true
 
 prompt() {
@@ -14,9 +317,9 @@ while $LOOP; do
 
   clear
 
-  lent=$(wc -l "$DATA" | cut -f 1 -d' ')
+  lent=$(echo "$DATA" | wc -l | cut -f 1 -d' ')
   line=$(shuf -i 1-"$lent" -n 1)
-  cont=$(sed -n "$line"p $DATA)
+  cont=$(echo "$DATA" | sed -n "$line"p)
 
   echo "$cont" | cut -f 1 -d,
 
