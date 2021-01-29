@@ -325,12 +325,12 @@ while $LOOP; do
 
   prompt
 
-  echo "english: $(echo "$cont" | cut -f 6 -d,)"
+  echo "english: $(cut -f 6 -d, <<< "$cont")"
   echo
-  echo "voice:   $(echo "$cont" | cut -f 2 -d,)"
-  echo "mood:    $(echo "$cont" | cut -f 3 -d,)"
-  echo "tense:   $(echo "$cont" | cut -f 4 -d,)"
-  echo "person:  $(echo "$cont" | cut -f 5 -d,)"
+  echo "voice:   $(cut -f 2 -d, <<< "$cont")"
+  echo "mood:    $(cut -f 3 -d, <<< "$cont")"
+  echo "tense:   $(cut -f 4 -d, <<< "$cont")"
+  echo "person:  $(cut -f 5 -d, <<< "$cont")"
 
   prompt
 
