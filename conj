@@ -311,15 +311,13 @@ prompt() {
   fi
 }
 
-LENT=$(wc -l <<< "$DATA" | cut -f 1 -d' ')
 LOOP=true
 
 while $LOOP; do
 
   clear
 
-  line=$(shuf -i 1-"$LENT" -n 1)
-  cont=$(sed -n "$line"p <<< "$DATA")
+  cont=$(shuf -n 1 <<< "$DATA")
 
   echo "$cont" | cut -f 1 -d,
 
