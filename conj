@@ -311,6 +311,18 @@ prompt() {
   fi
 }
 
+IFS="|"
+args="$*"
+
+if [[ ! -z "$args" ]]; then
+  DATA=$(grep -E "$args" <<< "$DATA")
+
+  if [[ -z "$DATA" ]]; then
+    echo "no results"
+    exit 1
+  fi
+fi
+
 LOOP=true
 
 while $LOOP; do
