@@ -10,8 +10,9 @@ git clone git@github.com:jtobin/lgram.git
 
 ## Run
 
+To drill conjugations, use:
+
 ```
-cd lgram
 ./conj
 ```
 
@@ -23,6 +24,14 @@ append them as arguments, e.g.:
 ```
 
 to drill only conjugations in either the active voice or with subjunctive mood.
+
+To drill declensions, use:
+
+```
+./decl
+```
+
+It can be filtered on analogously.
 
 Press 'q' to quit.
 
