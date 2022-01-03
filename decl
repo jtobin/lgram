@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+
+DATA=$(cat << EOF
+hōra,dēclīnātiō I,fēminīnum,singulāris,hōra,hōram,hōrae,hōrae,hōrā,hour
+hōrae,dēclīnātiō I,fēminīnum,plūrālis,hōrae,hōrās,hōrārum,hōrīs,hōrīs,hours
+magnus,dēclīnātiō I,masculīnum,singulāris,magnus,magnum,magnī,magnō,magnō,large
+magnus,dēclīnātiō I,masculīnum,plūrālis,magnī,magnōs,magnōrum,magnīs,magnīs,large
+magnus,dēclīnātiō I,fēminīnum,singulāris,magna,magnam,magnae,magnae,magnā,large
+magnus,dēclīnātiō I,fēminīnum,plūrālis,magnae,magnās,magnārum,magnīs,magnīs,large
+magnus,dēclīnātiō I,neutrum,singulāris,magnum,magnum,magnī,magnō,magnō,large
+magnus,dēclīnātiō I,neutrum,plūrālis,magna,magna,magnōrum,magnīs,magnīs,large
+nūllus,dēclīnātiō I,masculīnum,singulāris,nūllus,nūllum,nūllīus,nūllī,nūllō,none
+nūllus,dēclīnātiō I,masculīnum,plūrālis,nūllī,nūllōs,nūllōrum,nūllīs,nūllīs,none
+nūllus,dēclīnātiō I,fēminīnum,singulāris,nūlla,nūllam,nūllīus,nūllī,nūllā,none
+nūllus,dēclīnātiō I,fēminīnum,plūrālis,nūllae,nūllās,nūllārum,nūllīs,nūllīs,none
+nūllus,dēclīnātiō I,neutrum,singulāris,nūllum,nūllum,nūllīus,nūllī,nūllō,none
+nūllus,dēclīnātiō I,neutrum,plūrālis,nūlla,nūlla,nūllōrum,nūllīs,nūllīs,none
+EOF
+)
+
+prompt() {
+  read -p '' -n 1 -r <&1
+  if [[ $REPLY =~ ^[Qq]$ ]]; then
+    exit 0
+  fi
+}
+
+IFS="|"
+args="$*"
+
+if [[ ! -z "$args" ]]; then
+  DATA=$(grep -E "$args" <<< "$DATA")
+
+  if [[ -z "$DATA" ]]; then
+    echo "no results"
+    exit 1
+  fi
+fi
+
+LOOP=true
+
+while $LOOP; do
+
+  clear
+
+  cont=$(shuf -n 1 <<< "$DATA")
+
+  wd=$(cut -f 1 -d, <(echo -n "$cont"))
+  ty=$(cut -f 2 -d, <(echo -n "$cont"))
+  ge=$(cut -f 3 -d, <(echo -n "$cont"))
+  mu=$(cut -f 4 -d, <(echo -n "$cont"))
+  en=$(cut -f 10 -d, <(echo -n "$cont"))
+
+  echo "$wd ($mu, $ge): $en"
+
+  prompt
+
+  echo "$ty"
+  echo
+  echo "nōm:  $(cut -f 5 -d, <<< "$cont")"
+  echo "acc:  $(cut -f 6 -d, <<< "$cont")"
+  echo "gen:  $(cut -f 7 -d, <<< "$cont")"
+  echo "dat:  $(cut -f 8 -d, <<< "$cont")"
+  echo "abl:  $(cut -f 9 -d, <<< "$cont")"
+
+  prompt
+
+done
