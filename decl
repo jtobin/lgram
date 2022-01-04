@@ -1,20 +1,28 @@
 #!/usr/bin/env bash
 
+# nb everything after 9th field is optional
+
 DATA=$(cat << EOF
 hōra,dēclīnātiō I,fēminīnum,singulāris,hōra,hōram,hōrae,hōrae,hōrā,hour
 hōrae,dēclīnātiō I,fēminīnum,plūrālis,hōrae,hōrās,hōrārum,hōrīs,hōrīs,hours
-magnus,dēclīnātiō I,masculīnum,singulāris,magnus,magnum,magnī,magnō,magnō,large
-magnus,dēclīnātiō I,masculīnum,plūrālis,magnī,magnōs,magnōrum,magnīs,magnīs,large
-magnus,dēclīnātiō I,fēminīnum,singulāris,magna,magnam,magnae,magnae,magnā,large
-magnus,dēclīnātiō I,fēminīnum,plūrālis,magnae,magnās,magnārum,magnīs,magnīs,large
-magnus,dēclīnātiō I,neutrum,singulāris,magnum,magnum,magnī,magnō,magnō,large
-magnus,dēclīnātiō I,neutrum,plūrālis,magna,magna,magnōrum,magnīs,magnīs,large
-nūllus,dēclīnātiō I,masculīnum,singulāris,nūllus,nūllum,nūllīus,nūllī,nūllō,none
-nūllus,dēclīnātiō I,masculīnum,plūrālis,nūllī,nūllōs,nūllōrum,nūllīs,nūllīs,none
-nūllus,dēclīnātiō I,fēminīnum,singulāris,nūlla,nūllam,nūllīus,nūllī,nūllā,none
-nūllus,dēclīnātiō I,fēminīnum,plūrālis,nūllae,nūllās,nūllārum,nūllīs,nūllīs,none
-nūllus,dēclīnātiō I,neutrum,singulāris,nūllum,nūllum,nūllīus,nūllī,nūllō,none
-nūllus,dēclīnātiō I,neutrum,plūrālis,nūlla,nūlla,nūllōrum,nūllīs,nūllīs,none
+magnus,dēclīnātiō I,masculīnum,singulāris,magnus,magnum,magnī,magnō,magnō,large,dēclīnātiō II
+magnus,dēclīnātiō I,masculīnum,plūrālis,magnī,magnōs,magnōrum,magnīs,magnīs,large,dēclīnātiō II
+magnus,dēclīnātiō I,fēminīnum,singulāris,magna,magnam,magnae,magnae,magnā,large,dēclīnātiō II
+magnus,dēclīnātiō I,fēminīnum,plūrālis,magnae,magnās,magnārum,magnīs,magnīs,large,dēclīnātiō II
+magnus,dēclīnātiō I,neutrum,singulāris,magnum,magnum,magnī,magnō,magnō,large,dēclīnātiō II
+magnus,dēclīnātiō I,neutrum,plūrālis,magna,magna,magnōrum,magnīs,magnīs,large,dēclīnātiō II
+nūllus,dēclīnātiō I,masculīnum,singulāris,nūllus,nūllum,nūllīus,nūllī,nūllō,none,dēclīnātiō II
+nūllus,dēclīnātiō I,masculīnum,plūrālis,nūllī,nūllōs,nūllōrum,nūllīs,nūllīs,none,dēclīnātiō II
+nūllus,dēclīnātiō I,fēminīnum,singulāris,nūlla,nūllam,nūllīus,nūllī,nūllā,none,dēclīnātiō II
+nūllus,dēclīnātiō I,fēminīnum,plūrālis,nūllae,nūllās,nūllārum,nūllīs,nūllīs,none,dēclīnātiō II
+nūllus,dēclīnātiō I,neutrum,singulāris,nūllum,nūllum,nūllīus,nūllī,nūllō,none,dēclīnātiō II
+nūllus,dēclīnātiō I,neutrum,plūrālis,nūlla,nūlla,nūllōrum,nūllīs,nūllīs,none,dēclīnātiō II
+liber,dēclīnātiō II,masculīnum,singulāris,liber,librum,librī,librō,librō,book,dēclīnātiō II
+librī,dēclīnātiō II,masculīnum,plūrālis,librī,librōs,librōrum,librīs,librīs,book,dēclīnātiō II
+servus,dēclīnātiō II,masculīnum,singulāris,servus,servum,servī,servō,servō,servants,dēclīnātiō II
+servī,dēclīnātiō II,masculīnum,plūrālis,servī,servō,servōrum,servīs,servīs,books,dēclīnātiō II
+verbum,dēclīnātiō II,neutrum,singulāris,verbum,verbum,verbī,verbō,verbō,word,dēclīnātiō II
+verba,dēclīnātiō II,neutrum,plūrālis,verba,verba,verbōrum,verbīs,verbīs,words,dēclīnātiō II
 EOF
 )
 
