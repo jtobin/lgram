@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# nb everything after 9th field is optional
+# nb everything after 9th field are optional tags
 
 DATA=$(cat << EOF
 hōra,dēclīnātiō I,fēminīnum,singulāris,hōra,hōram,hōrae,hōrae,hōrā,hour
@@ -18,11 +18,27 @@ nūllus,dēclīnātiō I,fēminīnum,plūrālis,nūllae,nūllās,nūllārum,nūl
 nūllus,dēclīnātiō I,neutrum,singulāris,nūllum,nūllum,nūllīus,nūllī,nūllō,none,dēclīnātiō II
 nūllus,dēclīnātiō I,neutrum,plūrālis,nūlla,nūlla,nūllōrum,nūllīs,nūllīs,none,dēclīnātiō II
 liber,dēclīnātiō II,masculīnum,singulāris,liber,librum,librī,librō,librō,book,dēclīnātiō II
-librī,dēclīnātiō II,masculīnum,plūrālis,librī,librōs,librōrum,librīs,librīs,book,dēclīnātiō II
-servus,dēclīnātiō II,masculīnum,singulāris,servus,servum,servī,servō,servō,servants,dēclīnātiō II
-servī,dēclīnātiō II,masculīnum,plūrālis,servī,servō,servōrum,servīs,servīs,books,dēclīnātiō II
-verbum,dēclīnātiō II,neutrum,singulāris,verbum,verbum,verbī,verbō,verbō,word,dēclīnātiō II
-verba,dēclīnātiō II,neutrum,plūrālis,verba,verba,verbōrum,verbīs,verbīs,words,dēclīnātiō II
+librī,dēclīnātiō II,masculīnum,plūrālis,librī,librōs,librōrum,librīs,librīs,book
+servus,dēclīnātiō II,masculīnum,singulāris,servus,servum,servī,servō,servō,servants
+servī,dēclīnātiō II,masculīnum,plūrālis,servī,servō,servōrum,servīs,servīs,books
+verbum,dēclīnātiō II,neutrum,singulāris,verbum,verbum,verbī,verbō,verbō,word
+verba,dēclīnātiō II,neutrum,plūrālis,verba,verba,verbōrum,verbīs,verbīs,words
+leō,dēclīnātiō III,masculīnum,singulāris,leō,leōnem,leōnis,leōnī,leōne,lion
+leō,dēclīnātiō III,masculīnum,plūrālis,leōnēs,leōnēs,leōnum,leōnibus,leōnibus,lions
+mare,dēclīnātiō III,neutrum,singulāris,mare,mare,maris,marī,marī,sea
+maria,dēclīnātiō III,neutrum,plūrālis,maria,maria,marium,maribus,maribus,seas
+mōns,dēclīnātiō III,masculīnum,singulāris,mōns,montem,montis,montī,monte,mountain
+montēs,dēclīnātiō III,masculīnum,plūrālis,montēs,montēs,montium,montibus,montibus,mountains
+nāvis,dēclīnātiō III,fēminīnum,singulāris,nāvis,nāvem,nāvis,nāvī,nāve,ship
+nāvēs,dēclīnātiō III,fēminīnum,plūrālis,nāvēs,nāvēs,nāvium,nāvibus,nāvibus,ships
+nōmen,dēclīnātiō III,neutrum,singulāris,nōmen,nōmen,nōminis,nōminī,nōmine,name
+nōmina,dēclīnātiō III,neutrum,plūrālis,nōmina,nōmina,nōminum,nōminibus,nōminibus,names
+sōl,dēclīnātiō III,masculīnum,singulāris,sōl,sōlem,sōlis,sōlī,sōle,sun
+sōlēs,dēclīnātiō III,masculīnum,plūrālis,sōlēs,sōlēs,sōlum,sōlibus,sōlibus,suns
+urbs,dēclīnātiō III,fēminīnum,singulāris,urbs,urbem,urbis,urbī,urbe,city
+urbēs,dēclīnātiō III,fēminīnum,plūrālis,urbēs,urbēs,urbium,urbibus,urbibus,cities
+vōx,dēclīnātiō III,fēminīnum,singulāris,vōx,vōcem,vōcis,vōcī,vōce,voice
+vōcēs,dēclīnātiō III,fēminīnum,plūrālis,vōcēs,vōcēs,vōcum,vōcibus,vōcibus,voices
 EOF
 )
 
