@@ -16,14 +16,15 @@ To drill conjugations, use:
 ./conj
 ```
 
-You can supply keywords to filter the set of conjugations to drill.  Just
-append them as arguments, e.g.:
+Filter the set of conjugations to drill by appending keywords as arguments.
+E.g.:
 
 ```
 ./conj coniūnctīvus āctivum
 ```
 
-to drill only conjugations in either the active voice or with subjunctive mood.
+to drill only conjugations in *both* the active voice *and* with subjunctive
+mood.
 
 To drill declensions, use:
 
