@@ -58,10 +58,12 @@ prompt() {
 }
 
 IFS="|"
-args="$*"
 
-if [[ ! -z "$args" ]]; then
-  DATA=$(grep -E "$args" <<< "$DATA")
+if [[ ! -z "$@" ]]; then
+  for arg in "$@"; do
+    echo $arg
+    DATA=$(grep -E "$arg" <<< "$DATA")
+  done
 
   if [[ -z "$DATA" ]]; then
     echo "no results"
